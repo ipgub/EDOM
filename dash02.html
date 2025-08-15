@@ -3,22 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDOM Interaktif - Data Storytelling Dashboard</title>
-    
-    <!-- Chart.js dari CDN dengan fallback -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.js"></script>
-    <script>
-        // Fallback jika CDN gagal load
-        if (typeof Chart === 'undefined') {
-            document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"><\/script>');
-        }
-    </script>
+    <title>EDOM Interaktif - Mobile Optimized</title>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
         }
         
         body {
@@ -26,158 +17,149 @@
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            min-height: 100vh;
+            padding: 10px;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        .container { 
+            max-width: 100%;
+            margin: 0 auto; 
         }
         
-        /* Header */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px;
-            border-radius: 20px;
+            padding: 30px 20px;
+            border-radius: 15px;
             text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         
         .header h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: 2.5rem;
             margin-bottom: 10px;
         }
         
-        /* Content Sections */
         .content-section {
             background: white;
-            padding: 30px;
-            margin: 25px 0;
+            padding: 20px;
+            margin: 15px 0;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .content-section:hover {
-            transform: translateY(-2px);
         }
         
         .section-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #2563eb;
-            border-bottom: 4px solid #3b82f6;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
         
-        /* Stats Grid 2x2 */
+        /* Mobile-optimized Stats Grid */
         .stats-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 25px;
+            gap: 15px;
+            margin-bottom: 20px;
         }
         
         .stat-card {
             background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            padding: 25px;
-            border-radius: 15px;
+            padding: 20px 15px;
+            border-radius: 12px;
             text-align: center;
-            border: 3px solid #e2e8f0;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            border: 2px solid #e2e8f0;
+            transition: transform 0.3s ease;
         }
         
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
         }
         
         .stat-number {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: #3b82f6;
-            margin-bottom: 10px;
-            transition: all 0.5s ease;
+            margin-bottom: 8px;
+            display: block;
         }
         
         .stat-label {
             color: #64748b;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 500;
         }
         
-        /* Data View Selector */
+        /* Mobile-friendly buttons */
         .data-selector {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
         }
         
         .selector-btn {
-            padding: 12px 24px;
+            padding: 15px 10px;
             border: none;
             border-radius: 10px;
             font-weight: 600;
             cursor: pointer;
+            font-size: 0.9rem;
+            text-align: center;
+            background: #f1f5f9;
+            color: #64748b;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            touch-action: manipulation;
         }
         
         .selector-btn.active {
             background: #3b82f6;
             color: white;
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transform: translateY(-1px);
         }
         
-        .selector-btn:not(.active) {
-            background: #f1f5f9;
-            color: #64748b;
-        }
-        
-        .selector-btn:not(.active):hover {
+        .selector-btn:hover:not(.active) {
             background: #e2e8f0;
         }
         
-        /* Chart Container */
+        /* Chart container with proper sizing */
         .chart-container {
             position: relative;
-            height: 400px;
-            margin-bottom: 30px;
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        
-        /* Alert Boxes */
-        .alert-box {
-            padding: 20px;
-            border-radius: 10px;
+            width: 100%;
+            height: 350px;
             margin: 20px 0;
-            border-left: 6px solid;
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            overflow: hidden;
         }
         
-        .alert-warning {
-            background: #fef3c7;
-            border-left-color: #f59e0b;
-            color: #92400e;
+        .chart-status {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #6b7280;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        #myChart {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        /* Alert boxes */
+        .alert-box {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 5px solid;
         }
         
         .alert-info {
@@ -192,64 +174,39 @@
             color: #065f46;
         }
         
-        /* Collapsible Sections */
-        .collapsible {
-            border: 2px solid #e5e7eb;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            overflow: hidden;
+        .alert-warning {
+            background: #fef3c7;
+            border-left-color: #f59e0b;
+            color: #92400e;
         }
         
-        .collapsible-header {
-            background: #f8fafc;
-            padding: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.3s ease;
+        .alert-danger {
+            background: #fecaca;
+            border-left-color: #ef4444;
+            color: #991b1b;
         }
         
-        .collapsible-header:hover {
-            background: #f1f5f9;
-        }
-        
-        .collapsible-content {
-            padding: 20px;
-            display: none;
-            animation: slideDown 0.3s ease;
-        }
-        
-        .collapsible-content.active {
-            display: block;
-        }
-        
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Tables */
+        /* Mobile-optimized table */
         .data-table {
             width: 100%;
             border-collapse: collapse;
             background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin: 20px 0;
+            margin: 15px 0;
+            font-size: 0.9rem;
         }
         
         .data-table th {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            background: #3b82f6;
             color: white;
-            padding: 15px;
+            padding: 12px 8px;
             text-align: left;
             font-weight: 600;
         }
         
         .data-table td {
-            padding: 15px;
+            padding: 12px 8px;
             border-bottom: 1px solid #e5e7eb;
         }
         
@@ -261,1105 +218,748 @@
         .trend-down { background: #fecaca; }
         .trend-stable { background: #f0f9ff; }
         
-        /* Summary Cards */
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
+        /* Hide debug on mobile for cleaner look */
+        .debug-section {
+            display: none;
         }
         
-        .summary-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        /* Insights sections */
+        .insights-section {
+            margin-top: 20px;
+            animation: slideIn 0.3s ease;
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Enhanced alert boxes for mobile */
+        .alert-box h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        
+        .alert-box h4 {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .alert-box p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .alert-box ul {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* Status indicator */
+        .status-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .status-loading {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-ready {
+            background: #dcfce7;
+            color: #065f46;
+        }
+        
+        .status-error {
+            background: #fecaca;
+            color: #991b1b;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
             .header h1 {
                 font-size: 2rem;
             }
             
-            .data-selector {
-                flex-direction: column;
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
             
-            .selector-btn {
-                width: 100%;
+            .data-selector {
+                grid-template-columns: 1fr;
+            }
+            
+            .chart-container {
+                height: 300px;
+                padding: 10px;
+            }
+            
+            .data-table {
+                font-size: 0.8rem;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 8px 6px;
             }
         }
         
-        /* Hidden class */
-        .hidden {
-            display: none !important;
+        /* Loading animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .loading {
+            animation: pulse 2s infinite;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>🚀 Jika EDOM Interaktif...</h1>
-            <div class="subtitle">Mendengar Suara Mahasiswa Melalui Data yang Bercerita</div>
-            <div style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">
-                Sebuah Eksplorasi Data Storytelling dalam Evaluasi Pendidikan
-            </div>
-
-            <!-- Detailed Issues Table - shown only when issues view is selected -->
-            <div id="issues-detail" class="hidden">
-                <h3 style="color: #1f2937; margin-bottom: 20px;">📋 Data Detail Keluhan per Semester</h3>
-                <div style="overflow-x: auto;">
-                    <table class="data-table">
-                        <thead style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
-                            <tr>
-                                <th>Mata Kuliah</th>
-                                <th>Periode</th>
-                                <th style="text-align: center;">Total Mahasiswa</th>
-                                <th style="text-align: center;">Keluhan "Terlalu Cepat"</th>
-                                <th style="text-align: center;">Keluhan "Kurang Interaksi"</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Kalkulus I</strong></td>
-                                <td>2022/2023</td>
-                                <td style="text-align: center;">49</td>
-                                <td style="text-align: center;">
-                                    <div><strong>2 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #6b7280;">(4.08%)</div>
-                                </td>
-                                <td style="text-align: center;">
-                                    <div><strong>1 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #6b7280;">(2.04%)</div>
-                                </td>
-                            </tr>
-                            <tr class="trend-up">
-                                <td><strong>Kalkulus I</strong></td>
-                                <td>2023/2024</td>
-                                <td style="text-align: center;">50</td>
-                                <td style="text-align: center;">
-                                    <div><strong>1 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #10b981;">(2.00%)</div>
-                                </td>
-                                <td style="text-align: center;">
-                                    <div><strong>1 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #10b981;">(2.00%)</div>
-                                </td>
-                            </tr>
-                            <tr class="trend-down">
-                                <td><strong>Kalkulus I</strong></td>
-                                <td>2024/2025</td>
-                                <td style="text-align: center;">43</td>
-                                <td style="text-align: center;">
-                                    <div><strong style="color: #ef4444;">5 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #ef4444;">(11.63%)</div>
-                                </td>
-                                <td style="text-align: center;">
-                                    <div><strong style="color: #ef4444;">4 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #ef4444;">(9.30%)</div>
-                                </td>
-                            </tr>
-                            <tr class="trend-stable">
-                                <td><strong>Kalkulus II</strong></td>
-                                <td>2023/2024</td>
-                                <td style="text-align: center;">25</td>
-                                <td style="text-align: center;">
-                                    <div><strong style="color: #10b981;">0 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #10b981;">(0.00%)</div>
-                                </td>
-                                <td style="text-align: center;">
-                                    <div><strong style="color: #10b981;">0 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #10b981;">(0.00%)</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Kalkulus II</strong></td>
-                                <td>2024/2025</td>
-                                <td style="text-align: center;">31</td>
-                                <td style="text-align: center;">
-                                    <div><strong style="color: #10b981;">0 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #10b981;">(0.00%)</div>
-                                </td>
-                                <td style="text-align: center;">
-                                    <div><strong>1 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #6b7280;">(3.23%)</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                    <div style="background: #fecaca; border-left: 4px solid #ef4444; padding: 20px; border-radius: 8px;">
-                        <h4 style="font-weight: bold; margin-bottom: 10px; color: #991b1b;">🚨 Alert: Lonjakan Dramatis</h4>
-                        <p style="font-size: 0.9em; color: #dc2626; margin: 0;">
-                            Kalkulus I 2024/2025 mengalami lonjakan keluhan "terlalu cepat" dari 2% menjadi 11.6% - 
-                            peningkatan hampir 6x lipat!
-                        </p>
-                    </div>
-                    <div style="background: #fed7aa; border-left: 4px solid #f59e0b; padding: 20px; border-radius: 8px;">
-                        <h4 style="font-weight: bold; margin-bottom: 10px; color: #92400e;">📊 Pattern Menarik</h4>
-                        <p style="font-size: 0.9em; color: #d97706; margin: 0;">
-                            Kalkulus II relatif bebas masalah pace, tapi mulai muncul keluhan interaksi di 2024/2025. 
-                            Apakah ini early warning?
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Introduction -->
-        <div class="content-section">
-            <p style="font-size: 1.1em; margin-bottom: 20px; text-align: justify;">
-                Di era digital yang serba cepat ini, kita sudah terbiasa dengan dashboard Netflix yang tahu persis film apa yang kita suka, 
-                atau algoritma Spotify yang bisa meracik playlist sesuai mood kita. Namun, ketika berbicara tentang evaluasi pendidikan, 
-                kita masih stuck dengan format EDOM tradisional yang terasa seperti survei tahun 90-an.
+    <!-- Status Indicator -->
+    <div id="statusIndicator" class="status-indicator status-loading">
+        📶 Loading...
+        <!-- Footer -->
+        <div style="text-align: center; margin: 20px 0; padding: 25px; background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <p style="color: #6b7280; font-size: 0.9rem; line-height: 1.6;">
+                <strong>📊 Data Story ini disusun berdasarkan:</strong><br>
+                198 suara mahasiswa | 5 semester evaluasi | 2022/2023 - 2024/2025<br>
+                <em>Dipersembahkan dengan ❤️ data storytelling spirit dan secangkir kopi ☕</em>
             </p>
-            
-            <div class="alert-box alert-info">
-                <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <span style="margin-right: 10px;">👁️</span>
-                    <strong>Visi:</strong>
-                </div>
-                <p style="font-weight: 500;">
-                    Bayangkan jika EDOM bisa menjadi sebuah dialog yang hidup, interaktif, dan benar-benar memberikan insight mendalam tentang apa yang terjadi di dalam kelas.
-                </p>
-            </div>
-        </div>
-
-        <!-- Key Statistics Dashboard -->
-        <div class="content-section">
-            <h2 class="section-title">📊 Dashboard Utama: Potret Kelas Kalkulus</h2>
-            
-            <div class="stats-grid">
-                <div class="stat-card" style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);">
-                    <div class="stat-number" id="satisfaction-counter" style="color: #10b981;">0%</div>
-                    <div class="stat-label">Mahasiswa Merasa Puas</div>
-                </div>
-                
-                <div class="stat-card" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
-                    <div class="stat-number" id="students-counter" style="color: #3b82f6;">0</div>
-                    <div class="stat-label">Total Suara Mahasiswa</div>
-                </div>
-                
-                <div class="stat-card" style="background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);">
-                    <div class="stat-number" id="semesters-counter" style="color: #8b5cf6;">0</div>
-                    <div class="stat-label">Semester Dievaluasi</div>
-                </div>
-                
-                <div class="stat-card" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
-                    <div class="stat-number" id="rating-counter" style="color: #f59e0b;">0.0</div>
-                    <div class="stat-label">Rating Rata-rata</div>
-                </div>
-            </div>
-
-            <p style="font-size: 1.1em; color: #4b5563;">
-                Angka 65% mahasiswa yang puas terdengar cukup bagus, bukan? Tapi inilah yang menarik dari data storytelling: 
-                angka itu hanya permulaan cerita. Yang lebih menarik adalah bagaimana tren kepuasan ini bergerak dari waktu ke waktu, 
-                dan apa penyebab sistemik di balik perubahan dramatis tersebut.
-            </p>
-            
-            <div style="background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 20px; border-radius: 8px; margin-top: 20px;">
-                <h3 style="color: #1e40af; margin-bottom: 10px;">🔍 Fitur Analisis Sistemik</h3>
-                <p style="color: #3b82f6; margin: 0;">
-                    Dashboard ini tidak hanya menampilkan data, tapi juga menganalisis apakah masalah yang terjadi bersifat <strong>isolated</strong> (satu mata kuliah) 
-                    atau <strong>sistemik</strong> (generational challenge). Eksplorasi tab "Diagnosis Sistemik" untuk memahami root cause analysis 
-                    dan strategic solutions framework.
-                </p>
-            </div>
-        </div>
-
-        <!-- Interactive Data Visualization -->
-        <div class="content-section">
-            <h2 class="section-title">📈 Plot Twist: Ketika Grafik Mengejutkan</h2>
-
-            <!-- Data View Selector -->
-            <div class="data-selector">
-                <button class="selector-btn active" onclick="showDataView('satisfaction', this)">
-                    📊 Kepuasan Mahasiswa
-                </button>
-                <button class="selector-btn" onclick="showDataView('feedback', this)">
-                    🗣️ Distribusi Feedback
-                </button>
-                <button class="selector-btn" onclick="showDataView('issues', this)">
-                    🚨 Tren Masalah
-                </button>
-                <button class="selector-btn" onclick="showDataView('diagnosis', this)">
-                    🔍 Diagnosis Sistemik
-                </button>
-            </div>
-
-            <!-- Chart Container -->
-            <div class="chart-container">
-                <div id="chart-loading" style="display: flex; justify-content: center; align-items: center; height: 100%; color: #6b7280;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2em; margin-bottom: 10px;">📊</div>
-                        <div>Loading chart...</div>
-                    </div>
-                </div>
-                <canvas id="mainChart" style="display: none;"></canvas>
-            </div>
-
-            <!-- Comparison Insights - shown only when satisfaction view is selected -->
-            <div id="satisfaction-insights" class="hidden">
-                <h3 style="color: #1f2937; margin: 30px 0 20px 0;">🔍 Analisis Perbandingan</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 20px;">
-                    <div style="background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 20px; border-radius: 8px;">
-                        <h4 style="color: #1e40af; font-weight: bold; margin-bottom: 10px;">📈 Periode 2023/2024: Kalkulus II Unggul</h4>
-                        <p style="color: #3b82f6; font-size: 0.9em; margin: 0;">
-                            <strong>Kalkulus II: 76%</strong> vs <strong>Kalkulus I: 72%</strong><br>
-                            Gap +4% menunjukkan Kalkulus II lebih mature dalam metode pembelajaran
-                        </p>
-                    </div>
-                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; border-radius: 8px;">
-                        <h4 style="color: #92400e; font-weight: bold; margin-bottom: 10px;">📉 Periode 2024/2025: Dramatic Drop</h4>
-                        <p style="color: #d97706; font-size: 0.9em; margin: 0;">
-                            <strong>Kalkulus I: 56%</strong> vs <strong>Kalkulus II: 55%</strong><br>
-                            Both courses turun drastis! Gap hampir hilang - masalah sistemik?
-                        </p>
-                    </div>
-                </div>
-                
-                <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 10px; padding: 20px;">
-                    <h4 style="color: #374151; font-weight: bold; margin-bottom: 15px;">💡 Key Insights dari Comparison:</h4>
-                    <ul style="color: #4b5563; line-height: 1.8; margin: 0;">
-                        <li><strong>Kalkulus II historically perform better</strong> - ukuran kelas lebih kecil, mahasiswa tersaring</li>
-                        <li><strong>2024/2025 = game changer</strong> - even Kalkulus II drop significantly (21% decrease!)</li>
-                        <li><strong>Convergence effect</strong> - gap antara Kalkulus I & II hampir hilang di 2024/2025</li>
-                        <li><strong>Systemic issue</strong> - bukan masalah spesifik satu mata kuliah, tapi generational</li>
-                    </ul>
-                </div>
-            </div>
-            <div id="issues-detail" class="hidden">
-                <h3 style="color: #1f2937; margin-bottom: 20px;">📋 Data Detail Keluhan per Semester</h3>
-                <div style="overflow-x: auto;">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Mata Kuliah</th>
-                                <th>Periode</th>
-                                <th style="text-align: center;">Total Mahasiswa</th>
-                                <th style="text-align: center;">Keluhan "Terlalu Cepat"</th>
-                                <th style="text-align: center;">Keluhan "Kurang Interaksi"</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Kalkulus I</strong></td>
-                                <td>2022/2023</td>
-                                <td style="text-align: center;">49</td>
-                                <td style="text-align: center;">
-                                    <div><strong>2 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #6b7280;">(4.08%)</div>
-                                </td>
-                                <td style="text-align: center;">
-                                    <div><strong>1 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #6b7280;">(2.04%)</div>
-                                </td>
-                            </tr>
-                            <tr class="trend-up">
-                                <td><strong>Kalkulus I</strong></td>
-                                <td>2023/2024</td>
-                                <td style="text-align: center;">50</td>
-                                <td style="text-align: center;">
-                                    <div><strong>1 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #10b981;">(2.00%)</div>
-                                </td>
-                                <td style="text-align: center;">
-                                    <div><strong>1 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #10b981;">(2.00%)</div>
-                                </td>
-                            </tr>
-                            <tr class="trend-down">
-                                <td><strong>Kalkulus I</strong></td>
-                                <td>2024/2025</td>
-                                <td style="text-align: center;">43</td>
-                                <td style="text-align: center;">
-                                    <div><strong style="color: #ef4444;">5 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #ef4444;">(11.63%)</div>
-                                </td>
-                                <td style="text-align: center;">
-                                    <div><strong style="color: #ef4444;">4 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #ef4444;">(9.30%)</div>
-                                </td>
-                            </tr>
-                            <tr class="trend-stable">
-                                <td><strong>Kalkulus II</strong></td>
-                                <td>2023/2024</td>
-                                <td style="text-align: center;">25</td>
-                                <td style="text-align: center;">
-                                    <div><strong style="color: #10b981;">0 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #10b981;">(0.00%)</div>
-                                </td>
-                                <td style="text-align: center;">
-                                    <div><strong style="color: #10b981;">0 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #10b981;">(0.00%)</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Kalkulus II</strong></td>
-                                <td>2024/2025</td>
-                                <td style="text-align: center;">31</td>
-                                <td style="text-align: center;">
-                                    <div><strong style="color: #10b981;">0 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #10b981;">(0.00%)</div>
-                                </td>
-                                <td style="text-align: center;">
-                                    <div><strong>1 mahasiswa</strong></div>
-                                    <div style="font-size: 0.9em; color: #6b7280;">(3.23%)</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                    <div class="alert-box" style="background: #fecaca; border-left-color: #ef4444; color: #991b1b;">
-                        <h4 style="font-weight: bold; margin-bottom: 10px;">🚨 Alert: Lonjakan Dramatis</h4>
-                        <p style="font-size: 0.9em;">
-                            Kalkulus I 2024/2025 mengalami lonjakan keluhan "terlalu cepat" dari 2% menjadi 11.6% - 
-                            peningkatan hampir 6x lipat!
-                        </p>
-                    </div>
-                    <div class="alert-box" style="background: #fed7aa; border-left-color: #f59e0b; color: #92400e;">
-                        <h4 style="font-weight: bold; margin-bottom: 10px;">📊 Pattern Menarik</h4>
-                        <p style="font-size: 0.9em;">
-                            Kalkulus II relatif bebas masalah pace, tapi mulai muncul keluhan interaksi di 2024/2025. 
-                            Apakah ini early warning?
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Alert Box for Key Insights -->
-            <div class="alert-box alert-warning">
-                <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <span style="margin-right: 10px;">📊</span>
-                    <strong>Pattern Comparison yang Mengejutkan:</strong>
-                </div>
-                <p>
-                    <strong>2023/2024:</strong> Kalkulus II (76%) outperform Kalkulus I (72%) dengan gap +4% - pola normal dimana mata kuliah lanjutan lebih mature.<br>
-                    <strong>2024/2025:</strong> Dramatic convergence! Kalkulus I (56%) dan Kalkulus II (55%) hampir sama-sama drop drastis. 
-                    Ini mengindikasikan <strong>systemic issue</strong> yang mempengaruhi keseluruhan pembelajaran matematika, bukan masalah spesifik satu mata kuliah.
-                </p>
-                <div style="margin-top: 15px; padding: 15px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; border-left: 4px solid #3b82f6;">
-                    <p style="margin: 0; color: #1e40af; font-weight: 500;">
-                        💡 <strong>Deep Dive Available:</strong> Klik tab "🔍 Diagnosis Sistemik" untuk analisis mendalam tentang COVID-19 educational debt dan strategic solutions framework.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Interactive Data Table -->
-        <div class="content-section">
-            <h2 class="section-title">📋 Data Detail: Eksplorasi Mendalam</h2>
-
-            <div style="overflow-x: auto;">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Periode</th>
-                            <th style="text-align: center;">Kalkulus I</th>
-                            <th style="text-align: center;">Kalkulus II</th>
-                            <th style="text-align: center;">Gap</th>
-                            <th>Insight</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="trend-stable">
-                            <td><strong>2022/2023</strong></td>
-                            <td style="text-align: center;">
-                                <div><strong>67.35%</strong></div>
-                                <div style="font-size: 0.8em; color: #6b7280;">(33/49 mahasiswa)</div>
-                            </td>
-                            <td style="text-align: center; color: #9ca3af;">
-                                <div><em>No data</em></div>
-                                <div style="font-size: 0.8em;">(-)</div>
-                            </td>
-                            <td style="text-align: center;">-</td>
-                            <td>📊 Baseline Kalkulus I</td>
-                        </tr>
-                        <tr class="trend-up">
-                            <td><strong>2023/2024</strong></td>
-                            <td style="text-align: center;">
-                                <div><strong style="color: #3b82f6;">72.00%</strong></div>
-                                <div style="font-size: 0.8em; color: #3b82f6;">(36/50 mahasiswa)</div>
-                            </td>
-                            <td style="text-align: center;">
-                                <div><strong style="color: #10b981;">76.00%</strong></div>
-                                <div style="font-size: 0.8em; color: #10b981;">(19/25 mahasiswa)</div>
-                            </td>
-                            <td style="text-align: center;">
-                                <span style="color: #10b981; font-weight: bold;">+4%</span>
-                            </td>
-                            <td>🌟 Peak Performance! Kalkulus II unggul</td>
-                        </tr>
-                        <tr class="trend-down">
-                            <td><strong>2024/2025</strong></td>
-                            <td style="text-align: center;">
-                                <div><strong style="color: #ef4444;">55.81%</strong></div>
-                                <div style="font-size: 0.8em; color: #ef4444;">(24/43 mahasiswa)</div>
-                                <div style="font-size: 0.8em; color: #ef4444;">📉 -16.19%</div>
-                            </td>
-                            <td style="text-align: center;">
-                                <div><strong style="color: #ef4444;">54.84%</strong></div>
-                                <div style="font-size: 0.8em; color: #ef4444;">(17/31 mahasiswa)</div>
-                                <div style="font-size: 0.8em; color: #ef4444;">📉 -21.16%</div>
-                            </td>
-                            <td style="text-align: center;">
-                                <span style="color: #6b7280; font-weight: bold;">~0%</span>
-                            </td>
-                            <td>🚨 Dramatic Drop! Gap hampir hilang</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div style="background: #fee2e2; border-left: 4px solid #ef4444; padding: 20px; border-radius: 8px; margin-top: 20px;">
-                <h4 style="color: #991b1b; font-weight: bold; margin-bottom: 10px;">🚨 Critical Observation</h4>
-                <p style="color: #dc2626; margin: 0;">
-                    <strong>2024/2025 Convergence Effect:</strong> Kalkulus II yang biasanya unggul, sekarang perform hampir sama dengan Kalkulus I. 
-                    Ini mengindikasikan masalah sistemik yang mempengaruhi keseluruhan pembelajaran kalkulus, bukan hanya issue spesifik di satu mata kuliah.
-                </p>
-            </div>
-        </div>
-
-        <!-- Collapsible Analysis Sections -->
-        <div class="content-section">
-            <h2 class="section-title">🔍 Analisis Mendalam</h2>
-
-            <!-- Static Summary Section -->
-            <div style="margin-bottom: 30px; padding: 25px; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: 10px; border-left: 6px solid #3b82f6;">
-                <h3 style="color: #1e40af; margin-bottom: 20px;">📊 Ringkasan Temuan Utama</h3>
-                <div class="summary-grid">
-                    <div class="summary-card">
-                        <h4 style="color: #374151; margin-bottom: 10px; font-size: 0.9rem;">🕵️ Diagnosis Utama</h4>
-                        <p style="color: #6b7280; font-size: 0.85rem;">
-                            <strong>Generation Gap:</strong> Mahasiswa 2024/2025 yang mengalami pembelajaran online ekstensif selama SMA 
-                            membutuhkan pendekatan berbeda.
-                        </p>
-                    </div>
-                    <div class="summary-card">
-                        <h4 style="color: #374151; margin-bottom: 10px; font-size: 0.9rem;">✨ Kekuatan Tersembunyi</h4>
-                        <p style="color: #6b7280; font-size: 0.85rem;">
-                            <strong>Fondasi Solid:</strong> 65% mahasiswa masih puas, Kalkulus II konsisten perform baik, 
-                            materi favorit tetap stabil.
-                        </p>
-                    </div>
-                    <div class="summary-card">
-                        <h4 style="color: #374151; margin-bottom: 10px; font-size: 0.9rem;">🎯 Solusi Terfokus</h4>
-                        <p style="color: #6b7280; font-size: 0.85rem;">
-                            <strong>Target Jelas:</strong> Perlambat pace (11.6% → &lt;5%), tingkatkan interaksi (9.3% → &lt;3%), 
-                            capai 75% kepuasan dalam 1 tahun.
-                        </p>
-                    </div>
-                </div>
-                <p style="color: #1e40af; font-size: 0.9em; margin-top: 15px; font-style: italic;">
-                    💡 Klik pada setiap bagian di bawah untuk eksplorasi mendalam dan strategi detail...
-                </p>
-            </div>
-
-            <!-- Detective Work Section -->
-            <div class="collapsible">
-                <div class="collapsible-header" onclick="toggleSection('detective')">
-                    <h3 style="color: #374151;">🕵️ Detective Work: Mencari Pelaku di Balik Layar</h3>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="collapsible-content" id="detective">
-                    <div class="alert-box" style="background: #fef3c7; border-left-color: #f59e0b; color: #92400e; margin-bottom: 20px;">
-                        <h4 style="font-weight: bold; margin-bottom: 10px;">🎓 Tersangka Utama: "The Generation Gap"</h4>
-                        <p>
-                            <strong>Kemungkinan terbesar:</strong> Mahasiswa angkatan 2024/2025 memiliki karakteristik yang berbeda dari angkatan sebelumnya. 
-                            Mereka adalah generasi yang mengalami pembelajaran online ekstensif selama SMA akibat pandemi COVID-19.
-                        </p>
-                    </div>
-                    
-                    <p style="margin-bottom: 20px; color: #4b5563;">
-                        Generasi ini mungkin membutuhkan pendekatan yang berbeda. Pembelajaran matematika secara virtual selama bertahun-tahun 
-                        dapat menciptakan gap dalam keterampilan fundamental yang tidak mudah terdeteksi dalam tes standardized.
-                    </p>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                        <div style="background: #dbeafe; padding: 15px; border-radius: 8px;">
-                            <h5 style="color: #1e40af; font-weight: bold;">📚 Perubahan Kurikulum</h5>
-                            <p style="color: #3b82f6; font-size: 0.9em;">Pressure untuk cover lebih banyak materi</p>
-                        </div>
-                        <div style="background: #f3e8ff; padding: 15px; border-radius: 8px;">
-                            <h5 style="color: #7c3aed; font-weight: bold;">🏢 Faktor Eksternal</h5>
-                            <p style="color: #8b5cf6; font-size: 0.9em;">Tekanan institusional atau regulasi</p>
-                        </div>
-                        <div style="background: #dcfce7; padding: 15px; border-radius: 8px;">
-                            <h5 style="color: #059669; font-weight: bold;">💡 Ekspektasi Berubah</h5>
-                            <p style="color: #10b981; font-size: 0.9em;">Generasi digital dengan ekspektasi berbeda</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Silver Lining Section -->
-            <div class="collapsible">
-                <div class="collapsible-header" onclick="toggleSection('silver')">
-                    <h3 style="color: #374151;">✨ Silver Lining: Kekuatan yang Masih Bertahan</h3>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="collapsible-content" id="silver">
-                    <div class="alert-box alert-success" style="margin-bottom: 20px;">
-                        <h4 style="font-weight: bold; margin-bottom: 15px;">🎯 Materi Favorit yang Konsisten:</h4>
-                        <ol style="color: #065f46; line-height: 1.8;">
-                            <li><strong>1. Limit dan Fungsi</strong> - Selalu menjadi favorit mahasiswa</li>
-                            <li><strong>2. Turunan</strong> - Banyak yang terkesan dengan penjelasannya</li>
-                            <li><strong>3. Integral</strong> - Teknik-teknik yang diajarkan diminati</li>
-                            <li><strong>4. Barisan dan Deret</strong> - Populer di Kalkulus II</li>
-                        </ol>
-                    </div>
-                    
-                    <p style="color: #4b5563;">
-                        Yang menarik, Kalkulus II secara konsisten menunjukkan performa yang lebih baik. 
-                        Hal ini mungkin karena ukuran kelas yang lebih kecil, mahasiswa yang sudah ter-filter, 
-                        atau materi yang lebih cocok dengan gaya pengajaran dosen.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Action Plan Section -->
-            <div class="collapsible">
-                <div class="collapsible-header" onclick="toggleSection('action')">
-                    <h3 style="color: #374151;">🎯 Action Plan: Dari Insight ke Implementasi</h3>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="collapsible-content" id="action">
-                    <h4 style="color: #dc2626; margin-bottom: 20px;">🚨 Immediate Actions (6 Bulan Pertama):</h4>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px;">
-                        <div style="background: #fecaca; border-left: 4px solid #ef4444; padding: 20px; border-radius: 8px;">
-                            <h5 style="color: #991b1b; font-weight: bold;">1. Recalibrate the Pace</h5>
-                            <ul style="color: #dc2626; font-size: 0.9em; margin-top: 10px; line-height: 1.6;">
-                                <li>• Learning checkpoints setiap 20-30 menit</li>
-                                <li>• Dedicated time untuk Q&A</li>
-                                <li>• Target: turunkan keluhan dari 11.6% ke &lt;5%</li>
-                            </ul>
-                        </div>
-                        
-                        <div style="background: #fecaca; border-left: 4px solid #ef4444; padding: 20px; border-radius: 8px;">
-                            <h5 style="color: #991b1b; font-weight: bold;">2. Boost Interaction</h5>
-                            <ul style="color: #dc2626; font-size: 0.9em; margin-top: 10px; line-height: 1.6;">
-                                <li>• Teknik "think-pair-share" untuk engagement</li>
-                                <li>• Small group discussions</li>
-                                <li>• Target: turunkan keluhan dari 9.3% ke &lt;3%</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 25px;">
-                        <div style="background: #bfdbfe; padding: 20px; border-radius: 10px; text-align: center;">
-                            <div style="font-size: 2rem; font-weight: bold; color: #1e40af;">70%</div>
-                            <div style="color: #3b82f6; font-size: 0.9em;">Target 6 Bulan</div>
-                        </div>
-                        <div style="background: #bbf7d0; padding: 20px; border-radius: 10px; text-align: center;">
-                            <div style="font-size: 2rem; font-weight: bold; color: #059669;">75%</div>
-                            <div style="color: #10b981; font-size: 0.9em;">Target 1 Tahun</div>
-                        </div>
-                        <div style="background: #fde68a; padding: 20px; border-radius: 10px; text-align: center;">
-                            <div style="font-size: 2rem; font-weight: bold; color: #d97706;">15%</div>
-                            <div style="color: #f59e0b; font-size: 0.9em;">Feedback Super Positif</div>
-                        </div>
-                        <div style="background: #fecaca; padding: 20px; border-radius: 10px; text-align: center;">
-                            <div style="font-size: 2rem; font-weight: bold; color: #dc2626;">&lt;3%</div>
-                            <div style="color: #ef4444; font-size: 0.9em;">Keluhan Maksimal</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer dengan Epilog -->
-        <div class="content-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
-            <h2 class="section-title">🚀 Epilog: Menuju EDOM yang Benar-Benar Interaktif</h2>
-            
-            <p style="font-size: 1.1em; margin-bottom: 25px; color: #4b5563; text-align: justify;">
-                Cerita data kalkulus ini hanyalah contoh kecil dari apa yang bisa terjadi ketika kita memperlakukan EDOM 
-                bukan sekadar kewajiban administratif, tapi sebagai sumber insight yang berharga.
-            </p>
-            
-            <div class="alert-box alert-info" style="margin-bottom: 25px;">
-                <h3 style="font-weight: bold; margin-bottom: 10px;">Visi EDOM Interaktif masa depan:</h3>
-                <p>
-                    Real-time feedback dashboard, drill-down capabilities per topik bahasan, automated alert system 
-                    untuk masalah yang emerging, dan continuous feedback loop antara dosen dan mahasiswa.
-                </p>
-            </div>
-            
-            <div class="alert-box alert-success">
-                <h3 style="font-weight: bold; margin-bottom: 10px;">🌟 The Bottom Line:</h3>
-                <p style="font-size: 1.1em; font-weight: 500;">
-                    Di balik setiap angka EDOM, ada cerita tentang mahasiswa yang berjuang memahami konsep, 
-                    dosen yang berusaha memberikan yang terbaik, dan dinamika pembelajaran yang unik. 
-                    Ketika kita mendengarkan cerita-cerita ini dengan seksama, kita tidak hanya mendapatkan data - 
-                    kita mendapatkan wisdom untuk menciptakan pendidikan yang lebih baik.
-                </p>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px; padding: 25px; background: #f1f5f9; border-radius: 10px;">
-                <p style="color: #6b7280;">
-                    <strong>📊 Data Story ini disusun berdasarkan:</strong><br />
-                    198 suara mahasiswa | 5 semester evaluasi | 2022/2023 - 2024/2025<br />
-                    <em>Dipersembahkan dengan semangat data storytelling dan secangkir kopi ☕</em>
+            <div style="margin-top: 15px; padding: 15px; background: rgba(59, 130, 246, 0.1); border-radius: 8px;">
+                <p style="color: #1e40af; font-size: 0.8rem; margin: 0;">
+                    <strong>💡 Share This Vision:</strong> Jika Anda percaya pendidikan Indonesia bisa lebih data-driven 
+                    dan human-centered, bagikan dashboard ini dengan colleagues yang peduli education innovation!
                 </p>
             </div>
         </div>
     </div>
 
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🚀 EDOM Interaktif</h1>
+            <div>Mendengar Suara Mahasiswa Melalui Data yang Bercerita</div>
+        </div>
+
+        <!-- Key Statistics -->
+        <div class="content-section">
+            <h2 class="section-title">📊 Dashboard Utama</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card" style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);">
+                    <span class="stat-number" style="color: #10b981;">65%</span>
+                    <div class="stat-label">Mahasiswa Puas</div>
+                </div>
+                
+                <div class="stat-card" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+                    <span class="stat-number" style="color: #3b82f6;">198</span>
+                    <div class="stat-label">Total Suara</div>
+                </div>
+                
+                <div class="stat-card" style="background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);">
+                    <span class="stat-number" style="color: #8b5cf6;">5</span>
+                    <div class="stat-label">Semester</div>
+                </div>
+                
+                <div class="stat-card" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+                    <span class="stat-number" style="color: #f59e0b;">3.39</span>
+                    <div class="stat-label">Rating Avg</div>
+                </div>
+            </div>
+
+            <div class="alert-box alert-info">
+                <strong>📱 Mobile Dashboard:</strong> Dashboard ini menganalisis apakah masalah bersifat isolated atau sistemik. 
+                Scroll ke bawah untuk melihat interactive charts dan analisis mendalam.
+            </div>
+        </div>
+
+        <!-- Interactive Charts -->
+        <div class="content-section">
+            <h2 class="section-title">📈 Charts Interaktif</h2>
+            
+            <div class="data-selector">
+                <button class="selector-btn active" onclick="showChart('satisfaction')">📊 Kepuasan</button>
+                <button class="selector-btn" onclick="showChart('feedback')">🗣️ Feedback</button>
+                <button class="selector-btn" onclick="showChart('issues')">🚨 Masalah</button>
+                <button class="selector-btn" onclick="showChart('diagnosis')">🔍 Diagnosis</button>
+            </div>
+
+            <div class="chart-container">
+                <div id="chartStatus" class="chart-status loading">
+                    📊 Memuat chart...
+                </div>
+                <canvas id="myChart" style="display: none;"></canvas>
+            </div>
+
+            <div id="chartContent">
+                <!-- Dynamic content -->
+            </div>
+
+            <!-- Detailed Insights Sections -->
+            <div id="satisfactionInsights" class="insights-section" style="display: none;">
+                <div class="alert-box alert-success">
+                    <h3>🔍 Analisis Perbandingan Mendalam</h3>
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h4 style="color: #1e40af; margin-bottom: 10px;">📈 Periode 2023/2024: Kalkulus II Unggul</h4>
+                        <p style="color: #3b82f6; font-size: 0.9em; margin: 0;">
+                            <strong>Kalkulus II: 76%</strong> vs <strong>Kalkulus I: 72%</strong><br>
+                            Gap +4% menunjukkan Kalkulus II lebih mature dalam pembelajaran
+                        </p>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h4 style="color: #92400e; margin-bottom: 10px;">📉 Periode 2024/2025: Dramatic Drop</h4>
+                        <p style="color: #d97706; font-size: 0.9em; margin: 0;">
+                            <strong>Kalkulus I: 56%</strong> vs <strong>Kalkulus II: 55%</strong><br>
+                            Both courses turun drastis! Gap hampir hilang - masalah sistemik
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="alert-box alert-info">
+                    <h3>💡 Key Insights dari Comparison</h3>
+                    <ul style="margin: 10px 0; padding-left: 20px; line-height: 1.6;">
+                        <li><strong>Kalkulus II historically better</strong> - ukuran kelas kecil, mahasiswa tersaring</li>
+                        <li><strong>2024/2025 = game changer</strong> - even Kalkulus II drop significantly</li>
+                        <li><strong>Convergence effect</strong> - gap Kalkulus I & II hampir hilang</li>
+                        <li><strong>Systemic issue</strong> - bukan masalah satu mata kuliah saja</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="feedbackInsights" class="insights-section" style="display: none;">
+                <div class="alert-box alert-success">
+                    <h3>🗣️ Breakdown Feedback Mahasiswa</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0;">
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #10b981;">
+                            <h4 style="color: #065f46; font-size: 0.9rem; margin-bottom: 5px;">🌟 Super Positif (7.6%)</h4>
+                            <p style="color: #064e3b; font-size: 0.8rem; margin: 0;">"Overall sudah sangat baik!", "Mengajar dengan fun, seru tidak tegang"</p>
+                        </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                            <h4 style="color: #1e40af; font-size: 0.9rem; margin-bottom: 5px;">😊 Puas Diam-diam (37.9%)</h4>
+                            <p style="color: #1e3a8a; font-size: 0.8rem; margin: 0;">Silent majority: "Tidak ada masalah", "Sudah baik" - grup terbesar</p>
+                        </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                            <h4 style="color: #92400e; font-size: 0.9rem; margin-bottom: 5px;">💭 Pemberi Saran (19.7%)</h4>
+                            <p style="color: #78350f; font-size: 0.8rem; margin: 0;">"Mungkin bisa ditambah lebih banyak contoh soal" - konstruktif</p>
+                        </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #ef4444;">
+                            <h4 style="color: #991b1b; font-size: 0.9rem; margin-bottom: 5px;">😤 Komplen (34.9%)</h4>
+                            <p style="color: #7f1d1d; font-size: 0.8rem; margin: 0;">"Tempo terlalu cepat", "Kurang interaksi" - perlu action</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert-box alert-info">
+                    <h3>📊 Insight Penting</h3>
+                    <p><strong>Silent Majority Effect:</strong> 37.9% mahasiswa puas tapi tidak ekspresif. Dalam analisis tradisional, grup ini sering terlupakan karena tidak memberikan feedback dramatis.</p>
+                    <p><strong>Action Required:</strong> Focus pada 34.9% yang komplen untuk improvement, sambil maintain kepuasan silent majority.</p>
+                </div>
+            </div>
+
+            <div id="issuesInsights" class="insights-section" style="display: none;">
+                <div class="alert-box alert-danger">
+                    <h3>🚨 Detail Keluhan per Semester</h3>
+                    <div style="overflow-x: auto; margin: 15px 0;">
+                        <table class="data-table" style="font-size: 0.8rem;">
+                            <thead style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                                <tr>
+                                    <th style="padding: 8px;">Mata Kuliah</th>
+                                    <th style="padding: 8px;">Periode</th>
+                                    <th style="padding: 8px; text-align: center;">Pace Cepat</th>
+                                    <th style="padding: 8px; text-align: center;">Kurang Interaksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 8px;"><strong>Kalkulus I</strong></td>
+                                    <td style="padding: 8px;">2022/2023</td>
+                                    <td style="padding: 8px; text-align: center;">2 (4.08%)</td>
+                                    <td style="padding: 8px; text-align: center;">1 (2.04%)</td>
+                                </tr>
+                                <tr class="trend-up">
+                                    <td style="padding: 8px;"><strong>Kalkulus I</strong></td>
+                                    <td style="padding: 8px;">2023/2024</td>
+                                    <td style="padding: 8px; text-align: center; color: #10b981;">1 (2.00%)</td>
+                                    <td style="padding: 8px; text-align: center; color: #10b981;">1 (2.00%)</td>
+                                </tr>
+                                <tr class="trend-down">
+                                    <td style="padding: 8px;"><strong>Kalkulus I</strong></td>
+                                    <td style="padding: 8px;">2024/2025</td>
+                                    <td style="padding: 8px; text-align: center; color: #ef4444;"><strong>5 (11.63%)</strong></td>
+                                    <td style="padding: 8px; text-align: center; color: #ef4444;"><strong>4 (9.30%)</strong></td>
+                                </tr>
+                                <tr class="trend-stable">
+                                    <td style="padding: 8px;"><strong>Kalkulus II</strong></td>
+                                    <td style="padding: 8px;">2023/2024</td>
+                                    <td style="padding: 8px; text-align: center; color: #10b981;">0 (0.00%)</td>
+                                    <td style="padding: 8px; text-align: center; color: #10b981;">0 (0.00%)</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px;"><strong>Kalkulus II</strong></td>
+                                    <td style="padding: 8px;">2024/2025</td>
+                                    <td style="padding: 8px; text-align: center; color: #10b981;">0 (0.00%)</td>
+                                    <td style="padding: 8px; text-align: center;">1 (3.23%)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="alert-box alert-warning">
+                    <h3>📊 Pattern Analysis</h3>
+                    <p><strong>🚨 Alert:</strong> Kalkulus I 2024/2025 mengalami lonjakan keluhan "terlalu cepat" dari 2% menjadi 11.6% - peningkatan 6x lipat!</p>
+                    <p><strong>📊 Interesting:</strong> Kalkulus II relatif bebas masalah pace, tapi mulai muncul keluhan interaksi. Early warning?</p>
+                </div>
+            </div>
+
+            <div id="diagnosisInsights" class="insights-section" style="display: none;">
+                <div class="alert-box alert-danger">
+                    <h3>🦠 COVID-19 Educational Debt Analysis</h3>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 10px; margin: 15px 0;">
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #ef4444;">
+                            <h4 style="color: #ef4444; font-size: 0.9rem; margin-bottom: 5px;">📚 Foundation Gap</h4>
+                            <p style="color: #7f1d1d; font-size: 0.8rem; margin: 0;">2+ years pembelajaran online selama SMA = weak mathematical problem-solving skills</p>
+                        </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #ef4444;">
+                            <h4 style="color: #ef4444; font-size: 0.9rem; margin-bottom: 5px;">🤝 Social Learning Deficit</h4>
+                            <p style="color: #7f1d1d; font-size: 0.8rem; margin: 0;">Kurang peer interaction & collaborative learning experience</p>
+                        </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #ef4444;">
+                            <h4 style="color: #ef4444; font-size: 0.9rem; margin-bottom: 5px;">⚡ Expectation Mismatch</h4>
+                            <p style="color: #7f1d1d; font-size: 0.8rem; margin: 0;">Digital native expectations vs traditional teaching methods</p>
+                        </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #ef4444;">
+                            <h4 style="color: #ef4444; font-size: 0.9rem; margin-bottom: 5px;">🎯 Attention Changes</h4>
+                            <p style="color: #7f1d1d; font-size: 0.8rem; margin: 0;">Shortened attention spans, need for immediate feedback loops</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Data Table -->
+        <div class="content-section">
+            <h2 class="section-title">📋 Data Comprehensive</h2>
+            
+            <div style="overflow-x: auto;">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Periode</th>
+                            <th>Kalkulus I</th>
+                            <th>Kalkulus II</th>
+                            <th>Gap</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="trend-stable">
+                            <td><strong>2022/23</strong></td>
+                            <td>67.35% (33/49)</td>
+                            <td style="color: #9ca3af;"><em>No data</em></td>
+                            <td>-</td>
+                            <td>📊 Baseline</td>
+                        </tr>
+                        <tr class="trend-up">
+                            <td><strong>2023/24</strong></td>
+                            <td style="color: #3b82f6;"><strong>72.00%</strong> (36/50)</td>
+                            <td style="color: #10b981;"><strong>76.00%</strong> (19/25)</td>
+                            <td style="color: #10b981;"><strong>+4%</strong></td>
+                            <td>🌟 Peak Performance!</td>
+                        </tr>
+                        <tr class="trend-down">
+                            <td><strong>2024/25</strong></td>
+                            <td style="color: #ef4444;"><strong>55.81%</strong> (24/43)<br><small>📉 -16.19%</small></td>
+                            <td style="color: #ef4444;"><strong>54.84%</strong> (17/31)<br><small>📉 -21.16%</small></td>
+                            <td style="color: #6b7280;"><strong>~0%</strong></td>
+                            <td>🚨 Crisis! Convergence effect</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="alert-box alert-warning">
+                <strong>🔍 Critical Observation:</strong> 2024/25 convergence effect dimana Kalkulus II yang biasanya unggul, 
+                sekarang perform hampir sama dengan Kalkulus I. Ini mengindikasikan masalah sistemik yang mempengaruhi 
+                keseluruhan pembelajaran kalkulus, bukan hanya issue spesifik di satu mata kuliah.
+            </div>
+
+            <div class="alert-box alert-info">
+                <strong>💡 Deep Analysis Available:</strong> Scroll ke atas untuk eksplorasi interactive charts yang memberikan 
+                insight mendalam tentang root cause analysis dan strategic solutions framework. Klik tab "🔍 Diagnosis" 
+                untuk memahami COVID-19 educational debt dan solusi transformatif.
+            </div>
+        </div>
+
+        <!-- Strategic Solutions Framework -->
+        <div class="content-section">
+            <h2 class="section-title">🛠️ Strategic Solutions Framework</h2>
+            
+            <div class="alert-box alert-danger">
+                <h3>🚨 Phase 1: Crisis Response (0-6 Months)</h3>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 10px; margin: 15px 0;">
+                    <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #dc2626;">
+                        <h4 style="color: #991b1b; margin-bottom: 8px;">📚 Emergency Support</h4>
+                        <ul style="color: #7f1d1d; font-size: 0.9em; margin: 0; padding-left: 15px; line-height: 1.5;">
+                            <li>Math remediation program</li>
+                            <li>Diagnostic assessments</li>
+                            <li>Peer tutoring networks</li>
+                            <li>Intensive workshops</li>
+                        </ul>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #dc2626;">
+                        <h4 style="color: #991b1b; margin-bottom: 8px;">🎯 Teaching Revolution</h4>
+                        <ul style="color: #7f1d1d; font-size: 0.9em; margin: 0; padding-left: 15px; line-height: 1.5;">
+                            <li>Microlearning (15-20 min chunks)</li>
+                            <li>Interactive polling</li>
+                            <li>Small group problem solving</li>
+                            <li>Real-time feedback systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert-box alert-success">
+                <h3>📈 Phase 2: Transformation (6-24 Months)</h3>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 10px; margin: 15px 0;">
+                    <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #059669;">
+                        <h4 style="color: #065f46; margin-bottom: 8px;">🔄 Generational Adaptation</h4>
+                        <ul style="color: #064e3b; font-size: 0.9em; margin: 0; padding-left: 15px; line-height: 1.5;">
+                            <li>Blended learning model</li>
+                            <li>Flipped classroom approach</li>
+                            <li>Multiple learning modalities</li>
+                            <li>Gamification elements</li>
+                        </ul>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #059669;">
+                        <h4 style="color: #065f46; margin-bottom: 8px;">👥 Faculty Development</h4>
+                        <ul style="color: #064e3b; font-size: 0.9em; margin: 0; padding-left: 15px; line-height: 1.5;">
+                            <li>Generation gap training</li>
+                            <li>Modern pedagogy workshops</li>
+                            <li>Technology skills upgrade</li>
+                            <li>Continuous improvement cycles</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert-box alert-info">
+                <h3>🎯 Success Roadmap & Metrics</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0;">
+                    <div style="background: white; padding: 15px; border-radius: 8px; text-align: center; border: 2px solid #dc2626;">
+                        <div style="font-size: 1.8rem; font-weight: bold; color: #dc2626; margin-bottom: 5px;">6 Bulan</div>
+                        <div style="color: #7f1d1d; font-size: 0.8em; margin-bottom: 8px;">Crisis Response</div>
+                        <div style="color: #dc2626; font-size: 0.8em; line-height: 1.4;">
+                            <strong>56% → 70%</strong> satisfaction<br>
+                            <strong>&lt;5%</strong> pace complaints<br>
+                            <strong>&lt;3%</strong> interaction complaints
+                        </div>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 8px; text-align: center; border: 2px solid #059669;">
+                        <div style="font-size: 1.8rem; font-weight: bold; color: #059669; margin-bottom: 5px;">1-2 Tahun</div>
+                        <div style="color: #065f46; font-size: 0.8em; margin-bottom: 8px;">Excellence</div>
+                        <div style="color: #047857; font-size: 0.8em; line-height: 1.4;">
+                            <strong>75%+</strong> satisfaction<br>
+                            <strong>New standards</strong><br>
+                            <strong>Future-ready</strong> education
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Epilog: EDOM Masa Depan -->
+        <div class="content-section">
+            <h2 class="section-title">🚀 Epilog: Menuju EDOM Interaktif</h2>
+            
+            <div class="alert-box alert-info">
+                <h3>💫 Visi EDOM Interaktif Masa Depan</h3>
+                <p>Cerita data kalkulus ini hanyalah contoh kecil dari apa yang bisa terjadi ketika kita memperlakukan EDOM 
+                bukan sekadar kewajiban administratif, tapi sebagai sumber insight yang berharga.</p>
+                <ul style="margin: 10px 0; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Real-time feedback dashboard</strong> yang responsive</li>
+                    <li><strong>Drill-down capabilities</strong> per topik bahasan</li>
+                    <li><strong>Automated alert system</strong> untuk masalah emerging</li>
+                    <li><strong>Continuous feedback loop</strong> dosen-mahasiswa</li>
+                </ul>
+            </div>
+
+            <div class="alert-box alert-success">
+                <h3>🌟 The Bottom Line</h3>
+                <p style="font-size: 1rem; font-weight: 500; line-height: 1.6;">
+                    Di balik setiap angka EDOM, ada cerita tentang mahasiswa yang berjuang memahami konsep, 
+                    dosen yang berusaha memberikan yang terbaik, dan dinamika pembelajaran yang unik. 
+                    Ketika kita mendengarkan cerita-cerita ini dengan seksama, kita tidak hanya mendapatkan data - 
+                    <strong>kita mendapatkan wisdom untuk menciptakan pendidikan yang lebih baik.</strong>
+                </p>
+            </div>
+
+            <div class="alert-box alert-warning">
+                <h3>💡 Key Takeaways dari Dashboard Ini</h3>
+                <ol style="margin: 10px 0; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Data storytelling</strong> > raw numbers</li>
+                    <li><strong>Systemic thinking</strong> > isolated fixes</li>
+                    <li><strong>Generational awareness</strong> > one-size-fits-all</li>
+                    <li><strong>Proactive adaptation</strong> > reactive responses</li>
+                    <li><strong>Student voice</strong> > administrative assumptions</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Global variables untuk charts
+        // Global variables
         let currentChart = null;
+        let chartReady = false;
         
-        // Data untuk visualisasi
-        const satisfactionData = {
-            labels: ['2022/2023', '2023/2024', '2024/2025'],
-            datasets: [
-                {
-                    label: 'Kalkulus I',
-                    data: [67.35, 72.00, 55.81],
-                    borderColor: '#3b82f6',
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                    fill: false,
-                    tension: 0.4,
-                    pointBackgroundColor: '#3b82f6',
-                    pointBorderColor: '#ffffff',
-                    pointBorderWidth: 3,
-                    pointRadius: 8,
-                    pointHoverRadius: 10
-                },
-                {
-                    label: 'Kalkulus II',
-                    data: [null, 76.00, 54.84], // null untuk 2022/2023 karena tidak ada data
-                    borderColor: '#10b981',
-                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                    fill: false,
-                    tension: 0.4,
-                    pointBackgroundColor: '#10b981',
-                    pointBorderColor: '#ffffff',
-                    pointBorderWidth: 3,
-                    pointRadius: 8,
-                    pointHoverRadius: 10,
-                    spanGaps: true // Untuk skip null values
-                }
-            ]
-        };
+        // Update status indicator
+        function updateStatus(status, message) {
+            const indicator = document.getElementById('statusIndicator');
+            indicator.className = `status-indicator status-${status}`;
+            indicator.textContent = message;
+            
+            if (status === 'ready') {
+                setTimeout(() => {
+                    indicator.style.display = 'none';
+                }, 3000);
+            }
+        }
         
-        const feedbackData = {
-            labels: ['Super Positif', 'Puas Diam-diam', 'Pemberi Saran', 'Komplen'],
-            datasets: [{
-                data: [7.6, 37.9, 19.7, 34.9],
-                backgroundColor: ['#10b981', '#3b82f6', '#f59e0b', '#ef4444'],
-                borderWidth: 3,
-                borderColor: '#ffffff'
-            }]
-        };
-        
-        const diagnosisData = {
-            labels: ['Isolated Issue', 'Systemic Issue'],
-            datasets: [{
-                label: 'Evidence Score',
-                data: [25, 95], // Evidence score dari 0-100
-                backgroundColor: [
-                    'rgba(245, 158, 11, 0.7)', // Orange untuk isolated
-                    'rgba(239, 68, 68, 0.7)'   // Red untuk systemic
-                ],
-                borderColor: [
-                    '#f59e0b',
-                    '#ef4444'
-                ],
-                borderWidth: 3
-            }]
-        };
-            labels: ['Pace Terlalu Cepat', 'Kurang Interaksi'],
-            datasets: [
-                {
-                    label: '2022/2023',
-                    data: [4.08, 2.04],
-                    backgroundColor: '#10b981'
-                },
-                {
-                    label: '2023/2024',
-                    data: [2.00, 2.00],
-                    backgroundColor: '#3b82f6'
-                },
-                {
-                    label: '2024/2025',
-                    data: [11.63, 9.30],
-                    backgroundColor: '#ef4444'
-                }
-            ]
+        // Chart data
+        const chartData = {
+            satisfaction: {
+                labels: ['2022/2023', '2023/2024', '2024/2025'],
+                datasets: [
+                    {
+                        label: 'Kalkulus I',
+                        data: [67.35, 72.00, 55.81],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    },
+                    {
+                        label: 'Kalkulus II',
+                        data: [null, 76.00, 54.84],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        tension: 0.4,
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        spanGaps: true
+                    }
+                ]
+            },
+            feedback: {
+                labels: ['Super Positif', 'Puas Diam-diam', 'Pemberi Saran', 'Komplen'],
+                datasets: [{
+                    data: [7.6, 37.9, 19.7, 34.9],
+                    backgroundColor: ['#10b981', '#3b82f6', '#f59e0b', '#ef4444'],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            issues: {
+                labels: ['Pace Cepat', 'Kurang Interaksi'],
+                datasets: [
+                    { label: '2022/23', data: [4.08, 2.04], backgroundColor: '#10b981' },
+                    { label: '2023/24', data: [2.00, 2.00], backgroundColor: '#3b82f6' },
+                    { label: '2024/25', data: [11.63, 9.30], backgroundColor: '#ef4444' }
+                ]
+            },
+            diagnosis: {
+                labels: ['Isolated', 'Systemic'],
+                datasets: [{
+                    data: [25, 95],
+                    backgroundColor: ['#f59e0b', '#ef4444'],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            }
         };
 
-        // Function untuk animasi counter
-        function animateCounter(element, target, suffix = '', duration = 2000) {
-            let start = 0;
-            const increment = target / (duration / 50);
-            const timer = setInterval(() => {
-                start += increment;
-                if (start >= target) {
-                    element.textContent = target + suffix;
-                    clearInterval(timer);
-                } else {
-                    if (suffix === '%' || suffix === '') {
-                        element.textContent = Math.floor(start) + suffix;
-                    } else {
-                        element.textContent = start.toFixed(1) + suffix;
-                    }
-                }
-            }, 50);
+        // Chart content
+        const chartContent = {
+            satisfaction: '<div class="alert-box alert-info"><h3>🔍 Comparison Analysis</h3><p>2024/25 shows convergence effect - gap antara Kalkulus I & II hampir hilang, indikasi masalah sistemik yang mempengaruhi kedua mata kuliah secara bersamaan.</p></div>',
+            feedback: '<div class="alert-box alert-success"><h3>🗣️ Komposisi Suara Mahasiswa</h3><p><strong>Silent Majority (37.9%):</strong> Puas tapi tidak ekspresif - grup terbesar yang sering terlupakan dalam analisis tradisional. <strong>Komplen (34.9%):</strong> Perlu perhatian serius untuk improvement berkelanjutan.</p></div>',
+            issues: '<div class="alert-box alert-warning"><h3>🚨 Lonjakan Dramatis 2024/2025</h3><p><strong>Pace Complaints:</strong> 2% → 11.6% (naik 6x lipat!)<br><strong>Interaction Complaints:</strong> 2% → 9.3% (naik 4x lipat!)<br>Kedua masalah ini muncul simultan, mengkonfirmasi nature sistemik dari challenge yang dihadapi.</p></div>',
+            diagnosis: '<div class="alert-box alert-danger"><h3>🦠 95% Evidence: Systemic Issue</h3><p>COVID-19 educational debt membutuhkan pendekatan pembelajaran yang fundamental berbeda. Mahasiswa 2024/25 adalah generasi yang mengalami disrupted learning selama masa formatif mereka.</p></div>'
+        };
+
+        // Function to show/hide insights sections
+        function toggleInsights(type) {
+            // Hide all insights sections
+            document.querySelectorAll('.insights-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show specific insights section
+            const insightsId = type + 'Insights';
+            const insightsSection = document.getElementById(insightsId);
+            if (insightsSection) {
+                insightsSection.style.display = 'block';
+            }
         }
 
-        // Function untuk show data view
-        function showDataView(viewType, clickedButton) {
-            console.log('showDataView called with:', viewType);
+        // Show chart function
+        function showChart(type) {
+            console.log('Showing chart:', type);
             
-            // Show loading indicator
-            const loadingDiv = document.getElementById('chart-loading');
-            const canvas = document.getElementById('mainChart');
+            // Update buttons
+            document.querySelectorAll('.selector-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
             
-            if (loadingDiv) loadingDiv.style.display = 'flex';
-            if (canvas) canvas.style.display = 'none';
-            
-            // Update button active states
-            document.querySelectorAll('.selector-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            if (clickedButton) {
-                clickedButton.classList.add('active');
-            }
-            
-            // Show/hide insights sections based on view
-            const satisfactionInsights = document.getElementById('satisfaction-insights');
-            const issuesDetail = document.getElementById('issues-detail');
-            const diagnosisAnalysis = document.getElementById('diagnosis-analysis');
-            
-            // Hide all sections first
-            satisfactionInsights.classList.add('hidden');
-            issuesDetail.classList.add('hidden');
-            diagnosisAnalysis.classList.add('hidden');
-            
-            // Show appropriate section
-            if (viewType === 'satisfaction') {
-                satisfactionInsights.classList.remove('hidden');
-            } else if (viewType === 'issues') {
-                issuesDetail.classList.remove('hidden');
-            } else if (viewType === 'diagnosis') {
-                diagnosisAnalysis.classList.remove('hidden');
-            }
-            
-            // Check if Chart.js is available
-            if (typeof Chart === 'undefined') {
-                console.error('Chart.js is not loaded!');
-                if (loadingDiv) {
-                    loadingDiv.innerHTML = '<div style="text-align: center; color: #ef4444;"><div style="font-size: 2em; margin-bottom: 10px;">⚠️</div><div>Chart.js failed to load. Please refresh the page.</div></div>';
-                }
+            if (!chartReady) {
+                updateStatus('error', '❌ Chart not ready');
                 return;
             }
             
-            // Small delay to show loading
+            const canvas = document.getElementById('myChart');
+            const statusDiv = document.getElementById('chartStatus');
+            
+            // Show loading
+            statusDiv.style.display = 'flex';
+            statusDiv.textContent = '📊 Switching chart...';
+            canvas.style.display = 'none';
+            
             setTimeout(() => {
-                createChart(viewType, loadingDiv, canvas);
+                try {
+                    // Destroy existing chart
+                    if (currentChart) {
+                        currentChart.destroy();
+                        currentChart = null;
+                    }
+                    
+                    const ctx = canvas.getContext('2d');
+                    let config;
+                    
+                    switch(type) {
+                        case 'satisfaction':
+                            config = {
+                                type: 'line',
+                                data: chartData.satisfaction,
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: {
+                                        title: { display: true, text: 'Kalkulus I vs II: Trend Kepuasan' },
+                                        legend: { display: true, position: 'top' }
+                                    },
+                                    scales: { y: { beginAtZero: true, max: 100 } }
+                                }
+                            };
+                            break;
+                            
+                        case 'feedback':
+                            config = {
+                                type: 'doughnut',
+                                data: chartData.feedback,
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: {
+                                        title: { display: true, text: 'Distribusi Feedback Mahasiswa' },
+                                        legend: { position: 'bottom' }
+                                    }
+                                }
+                            };
+                            break;
+                            
+                        case 'issues':
+                            config = {
+                                type: 'bar',
+                                data: chartData.issues,
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: { title: { display: true, text: 'Trend Keluhan per Periode' } },
+                                    scales: { y: { beginAtZero: true } }
+                                }
+                            };
+                            break;
+                            
+                        case 'diagnosis':
+                            config = {
+                                type: 'bar',
+                                data: chartData.diagnosis,
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: {
+                                        title: { display: true, text: 'Evidence: Isolated vs Systemic' },
+                                        legend: { display: false }
+                                    },
+                                    scales: { y: { beginAtZero: true, max: 100 } }
+                                }
+                            };
+                            break;
+                    }
+                    
+                    currentChart = new Chart(ctx, config);
+                    
+                    // Show chart
+                    statusDiv.style.display = 'none';
+                    canvas.style.display = 'block';
+                    
+                    // Update content
+                    document.getElementById('chartContent').innerHTML = chartContent[type] || '';
+                    
+                    // Show specific insights
+                    toggleInsights(type);
+                    
+                    console.log('Chart created successfully:', type);
+                    
+                } catch (error) {
+                    console.error('Chart creation error:', error);
+                    statusDiv.textContent = '❌ Error: ' + error.message;
+                    statusDiv.style.display = 'flex';
+                }
             }, 300);
         }
-        
-        function createChart(viewType, loadingDiv, canvas) {
-            // Destroy existing chart
-            if (currentChart) {
-                currentChart.destroy();
-                currentChart = null;
-            }
-            
-            if (!canvas) {
-                console.error('Canvas element not found!');
-                return;
-            }
-            
-            const ctx = canvas.getContext('2d');
-            
-            // Create new chart based on view type
-            let chartConfig = {};
-            
-            try {
-                switch (viewType) {
-                    case 'satisfaction':
-                        chartConfig = {
-                            type: 'line',
-                            data: satisfactionData,
-                            options: {
-                                responsive: true,
-                                maintainAspectRatio: false,
-                                plugins: {
-                                    title: {
-                                        display: true,
-                                        text: 'Perbandingan Kepuasan: Kalkulus I vs Kalkulus II',
-                                        font: { size: 16, weight: 'bold' },
-                                        padding: 20
-                                    },
-                                    legend: {
-                                        display: true,
-                                        position: 'top',
-                                        labels: {
-                                            usePointStyle: true,
-                                            padding: 20,
-                                            font: { size: 14 }
-                                        }
-                                    },
-                                    tooltip: {
-                                        mode: 'index',
-                                        intersect: false,
-                                        callbacks: {
-                                            title: function(context) {
-                                                return 'Periode: ' + context[0].label;
-                                            },
-                                            label: function(context) {
-                                                const datasetLabel = context.dataset.label;
-                                                const value = context.parsed.y;
-                                                const students = datasetLabel === 'Kalkulus I' ? 
-                                                    (context.label === '2022/2023' ? 49 : context.label === '2023/2024' ? 50 : 43) :
-                                                    (context.label === '2023/2024' ? 25 : 31);
-                                                const satisfied = Math.round(value * students / 100);
-                                                return `${datasetLabel}: ${value}% (${satisfied}/${students} mahasiswa)`;
-                                            }
-                                        }
-                                    }
-                                },
-                                scales: {
-                                    y: {
-                                        beginAtZero: true,
-                                        max: 100,
-                                        title: {
-                                            display: true,
-                                            text: 'Persentase Kepuasan (%)',
-                                            font: { size: 14 }
-                                        },
-                                        grid: {
-                                            color: 'rgba(0,0,0,0.1)'
-                                        }
-                                    },
-                                    x: {
-                                        title: {
-                                            display: true,
-                                            text: 'Periode Akademik',
-                                            font: { size: 14 }
-                                        },
-                                        grid: {
-                                            display: false
-                                        }
-                                    }
-                                },
-                                interaction: {
-                                    mode: 'nearest',
-                                    axis: 'x',
-                                    intersect: false
-                                }
-                            }
-                        };
-                        break;
-                        
-                    default:
-                        console.error('Unknown view type:', viewType);
-                        return;
-                        
-                    case 'feedback':
-                        chartConfig = {
-                            type: 'doughnut',
-                            data: feedbackData,
-                            options: {
-                                responsive: true,
-                                maintainAspectRatio: false,
-                                plugins: {
-                                    title: {
-                                        display: true,
-                                        text: 'Distribusi Jenis Feedback Mahasiswa',
-                                        font: { size: 16, weight: 'bold' }
-                                    },
-                                    legend: {
-                                        position: 'right'
-                                    }
-                                }
-                            }
-                        };
-                        break;
-                        
-                    case 'issues':
-                        chartConfig = {
-                            type: 'bar',
-                            data: issuesData,
-                            options: {
-                                responsive: true,
-                                maintainAspectRatio: false,
-                                plugins: {
-                                    title: {
-                                        display: true,
-                                        text: 'Tren Keluhan Utama per Periode',
-                                        font: { size: 16, weight: 'bold' }
-                                    }
-                                },
-                                scales: {
-                                    y: {
-                                        beginAtZero: true,
-                                        title: {
-                                            display: true,
-                                            text: 'Persentase Keluhan (%)'
-                                        }
-                                    },
-                                    x: {
-                                        title: {
-                                            display: true,
-                                            text: 'Jenis Keluhan'
-                                        }
-                                    }
-                                }
-                            }
-                        };
-                        break;
-                        
-                    case 'diagnosis':
-                        chartConfig = {
-                            type: 'bar',
-                            data: diagnosisData,
-                            options: {
-                                responsive: true,
-                                maintainAspectRatio: false,
-                                plugins: {
-                                    title: {
-                                        display: true,
-                                        text: 'Diagnosis: Isolated vs Systemic Issue',
-                                        font: { size: 16, weight: 'bold' },
-                                        padding: 20
-                                    },
-                                    legend: {
-                                        display: false
-                                    },
-                                    tooltip: {
-                                        callbacks: {
-                                            label: function(context) {
-                                                const label = context.label;
-                                                const value = context.parsed.y;
-                                                if (label === 'Isolated Issue') {
-                                                    return `Evidence Score: ${value}% - Unlikely (only one course affected)`;
-                                                } else {
-                                                    return `Evidence Score: ${value}% - Highly Likely (both courses affected)`;
-                                                }
-                                            }
-                                        }
-                                    }
-                                },
-                                scales: {
-                                    y: {
-                                        beginAtZero: true,
-                                        max: 100,
-                                        title: {
-                                            display: true,
-                                            text: 'Evidence Score (%)',
-                                            font: { size: 14 }
-                                        }
-                                    },
-                                    x: {
-                                        title: {
-                                            display: true,
-                                            text: 'Problem Type',
-                                            font: { size: 14 }
-                                        }
-                                    }
-                                }
-                            }
-                        };
-                        break;
-                }
-                
-                // Create new chart
-                console.log('Creating chart with config:', chartConfig);
-                currentChart = new Chart(ctx, chartConfig);
-                console.log('Chart created successfully');
-                
-                // Hide loading and show chart
-                if (loadingDiv) loadingDiv.style.display = 'none';
-                if (canvas) canvas.style.display = 'block';
-                
-            } catch (error) {
-                console.error('Error creating chart:', error);
-                if (loadingDiv) {
-                    loadingDiv.innerHTML = '<div style="text-align: center; color: #ef4444;"><div style="font-size: 2em; margin-bottom: 10px;">❌</div><div>Error loading chart: ' + error.message + '</div></div>';
-                }
-            }
-        }
 
-        // Function untuk toggle collapsible sections
-        function toggleSection(sectionId) {
-            const content = document.getElementById(sectionId);
-            const header = content.previousElementSibling;
-            const icon = header.querySelector('.toggle-icon');
-            
-            if (content.classList.contains('active')) {
-                content.classList.remove('active');
-                icon.textContent = '▼';
-            } else {
-                content.classList.add('active');
-                icon.textContent = '▲';
-            }
-        }
-
-        // Initialize dashboard when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM loaded, initializing dashboard...');
-            
-            // Check if Chart.js is loaded
+        // Initialize
+        function initDashboard() {
             if (typeof Chart === 'undefined') {
-                console.error('Chart.js not loaded! Retrying in 1 second...');
-                setTimeout(initializeDashboard, 1000);
-                return;
-            }
-            
-            initializeDashboard();
-        });
-        
-        function initializeDashboard() {
-            console.log('Initializing dashboard...');
-            
-            // Check required elements exist
-            const canvas = document.getElementById('mainChart');
-            const loadingDiv = document.getElementById('chart-loading');
-            
-            if (!canvas) {
-                console.error('Main chart canvas not found!');
-                return;
-            }
-            
-            if (!loadingDiv) {
-                console.error('Loading div not found!');
-                return;
-            }
-            
-            // Animate counters
-            setTimeout(() => {
-                const satisfactionCounter = document.getElementById('satisfaction-counter');
-                const studentsCounter = document.getElementById('students-counter');
-                const semestersCounter = document.getElementById('semesters-counter');
-                const ratingCounter = document.getElementById('rating-counter');
+                updateStatus('error', '❌ Chart.js failed');
                 
-                if (satisfactionCounter) animateCounter(satisfactionCounter, 65, '%');
-                if (studentsCounter) animateCounter(studentsCounter, 198);
-                if (semestersCounter) animateCounter(semestersCounter, 5);
-                if (ratingCounter) animateCounter(ratingCounter, 3.39);
-            }, 500);
-            
-            // Initialize default chart
-            setTimeout(() => {
-                const firstButton = document.querySelector('.selector-btn.active');
-                console.log('Initializing default chart...');
-                showDataView('satisfaction', firstButton);
-            }, 1000);
+                // Try dynamic loading
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js';
+                script.onload = () => {
+                    chartReady = true;
+                    updateStatus('ready', '✅ Ready');
+                    showChart('satisfaction');
+                };
+                script.onerror = () => updateStatus('error', '❌ Network error');
+                document.head.appendChild(script);
+            } else {
+                chartReady = true;
+                updateStatus('ready', '✅ Ready');
+                showChart('satisfaction');
+            }
         }
+        
+        // Start when DOM ready
+        document.addEventListener('DOMContentLoaded', () => {
+            updateStatus('loading', '📶 Loading...');
+            setTimeout(initDashboard, 1000);
+        });
     </script>
+    
+    <!-- Chart.js with fallback -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js" 
+            onload="console.log('Chart.js loaded')" 
+            onerror="console.log('Chart.js CDN failed')"></script>
 </body>
 </html>
