@@ -228,6 +228,41 @@
             margin-top: 20px;
             animation: slideIn 0.3s ease;
         }
+
+        /* IPG-ADD: 2025-08-15 (TAKEN FROM DESKTOP VERSION) */
+        
+        /* Collapsible Sections */
+        .collapsible {
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .collapsible-header {
+            background: #f8fafc;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        
+        .collapsible-header:hover {
+            background: #f1f5f9;
+        }
+        
+        .collapsible-content {
+            padding: 20px;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+        
+        .collapsible-content.active {
+            display: block;
+        }
+        
         
         @keyframes slideIn {
             from { opacity: 0; transform: translateY(10px); }
