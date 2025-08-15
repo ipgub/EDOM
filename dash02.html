@@ -1003,6 +1003,23 @@
                 showChart('satisfaction');
             }
         }
+
+        // IPG-ADD 2025-08-15
+        // Function untuk toggle collapsible sections
+        function toggleSection(sectionId) {
+            const content = document.getElementById(sectionId);
+            const header = content.previousElementSibling;
+            const icon = header.querySelector('.toggle-icon');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.textContent = '▼';
+            } else {
+                content.classList.add('active');
+                icon.textContent = '▲';
+            }
+        }
+        
         
         // Start when DOM ready
         document.addEventListener('DOMContentLoaded', () => {
