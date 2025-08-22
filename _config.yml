@@ -3,6 +3,18 @@ description: "What if ..."
 remote_theme: pages-themes/minimal@v0.2.0
 plugins:
   - jekyll-remote-theme
+    - jekyll-seo-tag
+
+# SEO dan metadata
+logo: "/img/UBCrest.png"
+favicon: "/img/UBakrie2.ico"
+
+# Social media icons
+social:
+  name: "My Project"
+  links:
+    - "https://github.com/ipgub/EDOM"
+    - "https://www.instagram.com/ipg.tif/"
 
 markdown: kramdown
 highlighter: rouge
