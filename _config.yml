@@ -7,7 +7,7 @@ remote_theme: just-the-docs/just-the-docs
 
 plugins:
   - jekyll-remote-theme
-    - jekyll-seo-tag
+  - jekyll-seo-tag
 
 # SEO dan metadata
 logo: "/img/UBCrest.png"
