@@ -30,12 +30,12 @@ Ini bukan sekadar laporan evaluasi. Ini adalah _snapshot_ dari dinamika pembelaj
 
 ## Ketika EDOM Menjadi Dialog
 
-Jika EDOM bisa menjadi interaktif, mungkin kita bisa:
+Jika EDOM bisa menjadi interaktif, mungkin kita bisa
 
 - **Melihat tren _real-time_** - bukan menunggu akhir semester untuk tahu ada masalah
 - **_Drill down_ ke detail** - dari angka global ke pengalaman spesifik per topik bahasan
-- **Memberikan ˆ** - mengapa rating turun? Apa yang sebenarnya terjadi?
-- **_Actionable insights_** - bukan hanya "rating turun", tapi "rating turun karena pace terlalu cepat, terutama di materi limit dan turunan"
+- **Memberikan _context_** - mengapa rating turun? Apa yang sebenarnya terjadi?
+- **_Actionable insights_** - bukan hanya "rating turun", tapi "rating turun karena _pace_ terlalu cepat, terutama di materi limit dan turunan"
 - **_Feedback loop_** - dosen bisa _respond_, mahasiswa bisa _update_, _creating continuous improvement cycle_
 
 ## _Beyond Numbers: Understanding Humans_
