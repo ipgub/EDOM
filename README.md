@@ -32,11 +32,11 @@ Ini bukan sekadar laporan evaluasi. Ini adalah _snapshot_ dari dinamika pembelaj
 
 Jika EDOM bisa menjadi interaktif, mungkin kita bisa:
 
-- **Melihat tren real-time** - bukan menunggu akhir semester untuk tahu ada masalah
-- **Drill down ke detail** - dari angka global ke pengalaman spesifik per topik bahasan
-- **Memberikan context** - mengapa rating turun? Apa yang sebenarnya terjadi?
-- **Actionable insights** - bukan hanya "rating turun", tapi "rating turun karena pace terlalu cepat, terutama di materi limit dan turunan"
-- **Feedback loop** - dosen bisa respond, mahasiswa bisa update, creating continuous improvement cycle
+- **Melihat tren _real-time_** - bukan menunggu akhir semester untuk tahu ada masalah
+- **_Drill down_ ke detail** - dari angka global ke pengalaman spesifik per topik bahasan
+- **Memberikan ˆ** - mengapa rating turun? Apa yang sebenarnya terjadi?
+- **_Actionable insights_** - bukan hanya "rating turun", tapi "rating turun karena pace terlalu cepat, terutama di materi limit dan turunan"
+- **_Feedback loop_** - dosen bisa _respond_, mahasiswa bisa _update_, _creating continuous improvement cycle_
 
 ## _Beyond Numbers: Understanding Humans_
 
@@ -46,7 +46,7 @@ Data bukan musuh. Data adalah teman yang bisa membantu kita memahami apa yang se
 
 ## _Welcome to the Data Story_
 
-_Mock up_ halaman web yang bisa Anda lihat di https://ipgub.github.io/EDOM/ adalah contoh kecil dari apa yang bisa terjadi ketika kita memperlakukan data EDOM bukan sekadar kewajiban administratif, tapi sebagai sumber _insight_ yang berharga. Kita akan melihat bagaimana 198 mahasiswa dari 5 semester yang berbeda bercerita tentang pengalaman mereka di kelas mata kuliah kalkulus.
+_Mock up_ halaman web yang bisa Anda lihat di [sini](https://ipgub.github.io/EDOM/) adalah contoh kecil dari apa yang bisa terjadi ketika kita memperlakukan data EDOM bukan sekadar kewajiban administratif, tapi sebagai sumber _insight_ yang berharga. Kita akan melihat bagaimana 198 mahasiswa dari 5 semester yang berbeda bercerita tentang pengalaman mereka di kelas mata kuliah kalkulus.
 
 Kita akan melihat tren yang mengejutkan, _pattern_ yang menarik, dan yang paling penting - rekomendasi yang _actionable_ untuk membuat pembelajaran menjadi lebih baik.
 
@@ -54,9 +54,9 @@ Data ini disajikan dalam format yang mudah dicerna, dengan visualisasi yang mena
 
 Siap untuk melihat apa yang sebenarnya mahasiswa katakan tentang kelas kalkulus mereka? Let's dive in!
 
-Link _mock up_ EDOM interaktif bisa diakses melalui https://ipgub.github.io/EDOM/.
+Link _mock up_ EDOM interaktif bisa diakses melalui [https://ipgub.github.io/EDOM/](https://ipgub.github.io/EDOM/).
 
-Halaman tersebut dibuat berdasarkan data mentah yang bisa diakses melalui https://ipgub.github.io/EDOM/rawdata
+Halaman tersebut dibuat berdasarkan data mentah yang bisa diakses melalui [https://ipgub.github.io/EDOM/rawdata](https://ipgub.github.io/EDOM/rawdata)
 
 ---
 
