@@ -4,7 +4,7 @@ description: "What if ..."
 # remote_theme: pages-themes/minimal@v0.2.0
 # remote_theme: just-the-docs/just-the-docs
 # remote_theme: squidfunk/mkdocs-material
-# remote_theme: pages-themes/minimal@v0.2.0      # Clean, sidebar layout
+remote_theme: pages-themes/minimal@v0.2.0      # Clean, sidebar layout
 # remote_theme: pages-themes/architect@v0.2.0    # Bold header design
 # remote_theme: pages-themes/cayman@v0.2.0       # Gradient header
 # remote_theme: pages-themes/dinky@v0.2.0        # Compact design
@@ -16,7 +16,7 @@ description: "What if ..."
 # remote_theme: pages-themes/slate@v0.2.0        # Dark with header
 # remote_theme: pages-themes/tactile@v0.2.0      # Textured header
 # remote_theme: pages-themes/time-machine@v0.2.0   # Retro sci-fi
-remote_theme: just-the-docs/just-the-docs        # Excellent for documentation
+# remote_theme: just-the-docs/just-the-docs        # Excellent for documentation
 # remote_theme: squidfunk/mkdocs-material          # Material Design inspired
 # remote_theme: alshedivat/al-folio                # Academic/research theme
 # remote_theme: mmistakes/minimal-mistakes         # Portfolio/blog theme
