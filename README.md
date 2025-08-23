@@ -4,6 +4,10 @@ layout: default
 
 # JIKA EDOM INTERAKTIF ...
 
+<i class="fab fa-github"></i> [GitHub](https://github.com/ipgub/EDOM)
+
+<i class="fab fa-instagram"></i> [Instagram](https://www.instagram.com/ipg.tif/)
+
 ![edom](img/edom2.jpg)
 
 Bayangkan jika Evaluasi Dosen Oleh Mahasiswa (EDOM) bukan lagi sekadar mengisi form dengan skala 1-4 yang membosankan, lalu menulis komentar di kotak kecil yang serasa kurang tempat. Bayangkan jika EDOM bisa menjadi sebuah dialog yang hidup, interaktif, dan benar-benar memberikan _insight_ yang mendalam tentang apa yang terjadi di dalam kelas.
