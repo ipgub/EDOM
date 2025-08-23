@@ -1,7 +1,8 @@
 ---
 layout: default
 ---
-
+<link rel="icon" type="image/x-icon" href="img/UBakrie2.ico">
+    
 # JIKA EDOM INTERAKTIF ...
 
 ![edom](img/edom2.jpg)
