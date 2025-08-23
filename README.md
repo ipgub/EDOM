@@ -1,9 +1,9 @@
 ---
 layout: default
 ---
-<link rel="icon" type="image/x-icon" href="img/UBakrie2.ico">
+<link rel="icon" type="image/x-icon" href="/img/UBakrie2.ico">
     
-# WHAT IF: JIKA EDOM INTERAKTIF ...
+# JIKA EDOM INTERAKTIF ...
 
 ![edom](img/edom2.jpg)
 
