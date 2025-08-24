@@ -1,6 +1,6 @@
 # URAIAN EDOM (Evaluasi Dosen Oleh Mahasiswa)
 
-## Table of Contents
+## Daftar Isi
 {: .no_toc .text-delta }
 
 1. TOC
