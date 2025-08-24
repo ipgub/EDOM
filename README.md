@@ -4,10 +4,10 @@ layout: default
     
 # JIKA EDOM INTERAKTIF ...
 
-{:toc}
-
 
 ![edom](img/edom2.jpg)
+
+{:toc}
 
 Bayangkan jika Evaluasi Dosen Oleh Mahasiswa (EDOM) bukan lagi sekadar mengisi form dengan skala 1-4 yang membosankan, lalu menulis komentar di kotak kecil yang serasa kurang tempat. Bayangkan jika EDOM bisa menjadi sebuah dialog yang hidup, interaktif, dan benar-benar memberikan _insight_ yang mendalam tentang apa yang terjadi di dalam kelas.
 
