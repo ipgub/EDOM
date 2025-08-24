@@ -1,4 +1,5 @@
 # URAIAN EDOM (Evaluasi Dosen Oleh Mahasiswa)
+{: .no_toc .text-delta }
 
 ## Daftar Isi
 {: .no_toc .text-delta }
