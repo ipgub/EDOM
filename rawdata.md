@@ -1,5 +1,11 @@
 # URAIAN EDOM (Evaluasi Dosen Oleh Mahasiswa)
 
+## Table of Contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
 ## Mata Kuliah: FTK111 - Kalkulus I (3 SKS)
 
 ### Periode 2022/2023 Gasal
