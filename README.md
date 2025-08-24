@@ -3,12 +3,13 @@ layout: default
 ---
     
 # JIKA EDOM INTERAKTIF ...
+{: .no_toc .text-delta }
 
 
 ![edom](img/edom2.jpg)
 
 
-## Table of Contents
+## Daftar Isi
 {: .no_toc .text-delta }
 
 1. TOC
