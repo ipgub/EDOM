@@ -4,7 +4,7 @@
 ## Daftar Isi
 {: .no_toc .text-delta }
 
-1. TOC
+* TOC
 {:toc}
 
 ## Mata Kuliah: FTK111 - Kalkulus I (3 SKS)
