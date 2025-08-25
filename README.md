@@ -59,7 +59,7 @@ Data bukan musuh. Data adalah teman yang bisa membantu kita memahami apa yang se
 
 ## _Welcome to the Data Story_
 
-_Mock up_ halaman web yang bisa Anda lihat di [sini](https://ipgub.github.io/EDOM/) adalah contoh kecil dari apa yang bisa terjadi ketika kita memperlakukan data EDOM bukan sekadar kewajiban administratif, tapi sebagai sumber _insight_ yang berharga. Kita akan melihat bagaimana 198 mahasiswa dari 5 semester yang berbeda bercerita tentang pengalaman mereka di kelas mata kuliah kalkulus.
+_Mock up_ halaman web yang bisa Anda lihat di [sini](https://ipgub.github.io/EDOM/){:target="_blank"} adalah contoh kecil dari apa yang bisa terjadi ketika kita memperlakukan data EDOM bukan sekadar kewajiban administratif, tapi sebagai sumber _insight_ yang berharga. Kita akan melihat bagaimana 198 mahasiswa dari 5 semester yang berbeda bercerita tentang pengalaman mereka di kelas mata kuliah kalkulus.
 
 Kita akan melihat tren yang mengejutkan, _pattern_ yang menarik, dan yang paling penting - rekomendasi yang _actionable_ untuk membuat pembelajaran menjadi lebih baik.
 
