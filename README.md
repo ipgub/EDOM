@@ -67,9 +67,9 @@ Data ini disajikan dalam format yang mudah dicerna, dengan visualisasi yang mena
 
 Siap untuk melihat apa yang sebenarnya mahasiswa katakan tentang kelas kalkulus mereka? Let's dive in!
 
-Link _mock up_ EDOM interaktif bisa diakses melalui [https://ipgub.github.io/EDOM/](https://ipgub.github.io/EDOM/).
+Link _mock up_ EDOM interaktif bisa diakses melalui [https://ipgub.github.io/EDOM/](https://ipgub.github.io/EDOM/){:target="_blank"}.
 
-Halaman tersebut dibuat berdasarkan data mentah yang bisa diakses melalui [https://ipgub.github.io/EDOM/rawdata](https://ipgub.github.io/EDOM/rawdata)
+Halaman tersebut dibuat berdasarkan data mentah yang bisa diakses melalui [https://ipgub.github.io/EDOM/rawdata](https://ipgub.github.io/EDOM/rawdata){:target="_blank"}
 
 ---
 
